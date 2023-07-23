@@ -14,4 +14,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.19" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MarketplaceCompleto.Data\MarketplaceCompleto.Data.csproj" />
+  </ItemGroup>
+
 </Project>
