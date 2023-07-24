@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Marketplace.Models
+﻿namespace Marketplace.Models
 {
     public class Endereco : Entity
     {

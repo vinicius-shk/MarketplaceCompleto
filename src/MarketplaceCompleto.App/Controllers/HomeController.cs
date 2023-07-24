@@ -1,4 +1,4 @@
-﻿using MarketplaceCompleto.App.Models;
+﻿using MarketplaceCompleto.App.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
