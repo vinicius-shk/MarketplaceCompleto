@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MarketplaceCompleto.App.ViewModels;
 
 namespace MarketplaceCompleto.App.Data
 {
@@ -9,5 +10,6 @@ namespace MarketplaceCompleto.App.Data
             : base(options)
         {
         }
+        public DbSet<MarketplaceCompleto.App.ViewModels.ProdutoViewModel> ProdutoViewModel { get; set; }
     }
 }
