@@ -5,7 +5,11 @@ namespace MarketplaceCompleto.Data.Context
 {
     public class MarketplaceDbContext : DbContext
     {
-        public MarketplaceDbContext(DbContextOptions options) : base(options) { }
+        public MarketplaceDbContext(DbContextOptions options) : base(options)
+        {
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            ChangeTracker.AutoDetectChangesEnabled = false;
+        }
 
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
