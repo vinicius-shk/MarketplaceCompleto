@@ -23,4 +23,8 @@
     <ProjectReference Include="..\MarketplaceCompleto.Data\MarketplaceCompleto.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\imagens\" />
+  </ItemGroup>
+
 </Project>
