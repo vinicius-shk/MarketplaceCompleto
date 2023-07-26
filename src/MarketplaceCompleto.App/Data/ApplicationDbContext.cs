@@ -11,5 +11,6 @@ namespace MarketplaceCompleto.App.Data
         {
         }
         public DbSet<MarketplaceCompleto.App.ViewModels.ProdutoViewModel> ProdutoViewModel { get; set; }
+        public DbSet<MarketplaceCompleto.App.ViewModels.EnderecoViewModel> EnderecoViewModel { get; set; }
     }
 }

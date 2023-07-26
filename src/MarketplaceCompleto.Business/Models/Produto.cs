@@ -12,7 +12,7 @@ namespace Marketplace.Models
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
 
-        /* EF Relation */
+        /* EF Relations */
         public Fornecedor Fornecedor { get; set; }
     }
 }
