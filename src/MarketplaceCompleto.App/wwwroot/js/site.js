@@ -84,14 +84,14 @@ function BuscaCep() {
                                 $("#Endereco_Bairro").val(dados.bairro);
                                 $("#Endereco_Cidade").val(dados.localidade);
                                 $("#Endereco_Estado").val(dados.uf);
-                            } //end if.
+                            }
                             else {
                                 //CEP pesquisado não foi encontrado.
                                 limpa_formulário_cep();
                                 alert("CEP não encontrado.");
                             }
                         });
-                } //end if.
+                }
                 else {
                     //cep é inválido.
                     limpa_formulário_cep();
