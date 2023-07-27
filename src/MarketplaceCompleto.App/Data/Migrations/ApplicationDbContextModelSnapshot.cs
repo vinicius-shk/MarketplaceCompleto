@@ -66,7 +66,7 @@ namespace MarketplaceCompleto.App.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EnderecoViewModel");
+                    b.ToTable("EnderecoViewModel", (string)null);
                 });
 
             modelBuilder.Entity("MarketplaceCompleto.App.ViewModels.ProdutoViewModel", b =>
@@ -102,7 +102,7 @@ namespace MarketplaceCompleto.App.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProdutoViewModel");
+                    b.ToTable("ProdutoViewModel", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
