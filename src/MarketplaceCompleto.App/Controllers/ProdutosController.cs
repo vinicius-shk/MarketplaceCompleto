@@ -1,11 +1,14 @@
 ﻿using AutoMapper;
 using Marketplace.Models;
+using MarketplaceCompleto.App.Extensions;
 using MarketplaceCompleto.App.ViewModels;
 using MarketplaceCompleto.Business.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketplaceCompleto.App.Controllers
 {
+    [Authorize]
     public class ProdutosController : BaseController
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -25,12 +28,14 @@ namespace MarketplaceCompleto.App.Controllers
             _produtoService = produtoService;
         }
 
+        [AllowAnonymous]
         [Route("lista-de-produtos")]
         public async Task<IActionResult> Index()
         {
             return View(_mapper.Map<IEnumerable<ProdutoViewModel>>(await _produtoRepository.ObterProdutosFornecedores()));
         }
 
+        [AllowAnonymous]
         [Route("dados-do-produtos/{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
@@ -44,6 +49,7 @@ namespace MarketplaceCompleto.App.Controllers
             return View(produtoViewModel);
         }
 
+        [ClaimsAuthorize("Produto","Adicionar")]
         [Route("novo-produto")]
         public async Task<IActionResult> Create()
         {
@@ -51,6 +57,7 @@ namespace MarketplaceCompleto.App.Controllers
             return View(produtoViewModel);
         }
 
+        [ClaimsAuthorize("Produto", "Adicionar")]
         [Route("novo-produto")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -73,6 +80,7 @@ namespace MarketplaceCompleto.App.Controllers
             return RedirectToAction("Index");           
         }
 
+        [ClaimsAuthorize("Produto", "Editar")]
         [Route("editar-produto/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -84,6 +92,7 @@ namespace MarketplaceCompleto.App.Controllers
             return View(produtoViewModel);
         }
 
+        [ClaimsAuthorize("Produto", "Editar")]
         [Route("editar-produto/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -119,6 +128,7 @@ namespace MarketplaceCompleto.App.Controllers
             return RedirectToAction("Index");
         }
 
+        [ClaimsAuthorize("Produto", "Excluir")]
         [Route("excluir-produto/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -132,6 +142,7 @@ namespace MarketplaceCompleto.App.Controllers
             return View(produto);
         }
 
+        [ClaimsAuthorize("Produto", "Excluir")]
         [Route("excluir-produto/{id:guid}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
