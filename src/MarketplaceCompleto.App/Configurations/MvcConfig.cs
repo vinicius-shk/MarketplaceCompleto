@@ -1,4 +1,6 @@
-﻿namespace MarketplaceCompleto.App.Configurations
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace MarketplaceCompleto.App.Configurations
 {
     public static class MvcConfig
     {
@@ -17,6 +19,9 @@
                 o.ModelBindingMessageProvider.SetValueIsInvalidAccessor(x => "O valor preenchido é inválido para este campo.");
                 o.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x => "O campo deve ser numérico.");
                 o.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
+
+                // implementa o filtro do AFT, dispensando o decorator.
+                o.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
 
             return services;
